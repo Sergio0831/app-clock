@@ -1,8 +1,9 @@
 .appWrapper {
-  padding: 4vw 0;
+  padding: 6vw 0;
   display: grid;
   align-content: space-between;
   min-height: 100vh;
+  grid-template-rows: 1fr max-content;
   /* row-gap: clamp(2.4rem, 3vw, 3.5rem); */
 }
 

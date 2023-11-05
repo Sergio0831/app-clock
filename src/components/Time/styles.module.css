@@ -1,4 +1,8 @@
-.wrapper {
+.wrapperOuter {
+  align-self: center;
+}
+
+.wrapperInner {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -20,7 +24,7 @@
 
 /* 480px */
 @media screen and (min-width: 30rem) {
-  .wrapper {
+  .wrapperInner {
     row-gap: 5rem;
   }
 
@@ -31,7 +35,7 @@
 
 /* 768px */
 @media screen and (min-width: 48rem) {
-  .wrapper {
+  .wrapperInner {
     align-items: flex-end;
     flex-direction: row;
   }

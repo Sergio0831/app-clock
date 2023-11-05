@@ -7,9 +7,9 @@ import ReadMoreButton from '../ReadMoreButton';
 
 const Time = () => {
   return (
-    <section className='wrapper'>
+    <section className={`${styles.wrapperOuter} wrapper`}>
       <GreetingMessage />
-      <div className={styles.wrapper}>
+      <div className={styles.wrapperInner}>
         <div>
           <div>
             <time
