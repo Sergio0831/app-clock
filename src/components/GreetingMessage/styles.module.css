@@ -1,0 +1,16 @@
+.greetingMessage {
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+.greetingMessage span {
+  display: none;
+}
+
+/* 480px */
+@media screen and (min-width: 30rem) {
+  .greetingMessage span {
+    display: inline-block;
+  }
+}

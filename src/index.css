@@ -1,0 +1,158 @@
+:root {
+  /* Colors */
+  --clr-black: #000;
+  --clr-white: #fff;
+  --clr-dark: #303030;
+
+  /* Typography */
+  --font-base: 'Inter', sans-serif;
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-bold: 700;
+
+  --fs-sm: 1rem; /* 16px */
+  --fs-base: 1.125rem; /* 18px */
+  --fs-md: 1.25rem; /* 20px */
+  --fs-large: 1.5rem; /* 24px */
+  --fs-xl: 3.5rem; /* 56px */
+  --fs-xxl: 12.5rem; /* 200px */
+
+  --transition: 0.2s ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: var(--font-base);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-regular);
+  line-height: 1.55;
+  position: relative;
+  color: var(--clr-white);
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+}
+
+/* Reusable classes */
+.wrapper {
+  width: min(68.75rem, calc(100vw - 1.625rem));
+  margin: 0 auto;
+}
+
+.heading-1 {
+  font-size: 6.25rem;
+  line-height: 1;
+  font-weight: var(--fw-bold);
+  letter-spacing: -2.5px;
+}
+
+.heading-2 {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+}
+
+.heading-3 {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
+  line-height: 1.16;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.heading-4 {
+  font-size: var(--fs-sm);
+  line-height: 1.4;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: var(--fw-regular);
+}
+
+.heading-5 {
+  font-size: var(--fs-base);
+  font-weight: var(--fw-bold);
+}
+
+.heading-6 {
+  font-size: 0.875rem;
+  font-weight: var(--fw-regular);
+  text-transform: uppercase;
+  line-height: 1.75;
+  letter-spacing: 2px;
+}
+
+/* 480px */
+@media screen and (min-width: 30rem) {
+  body {
+    font-size: var(--fs-base);
+  }
+
+  .heading-1 {
+    font-size: 11rem;
+    letter-spacing: -4.38px;
+  }
+
+  .heading-2 {
+    font-size: 2.5rem;
+  }
+
+  .heading-3 {
+    font-size: var(--fs-base);
+    letter-spacing: 3.6px;
+  }
+
+  .heading-4 {
+    font-size: var(--fs-base);
+    letter-spacing: 3.6px;
+  }
+
+  .heading-6 {
+    letter-spacing: 2.6px;
+  }
+}
+
+/* 768px */
+@media screen and (min-width: 48rem) {
+  .heading-1 {
+    font-size: var(--fs-xxl);
+    letter-spacing: -5px;
+  }
+
+  .heading-2 {
+    font-size: var(--fs-xl);
+  }
+
+  .heading-3 {
+    font-size: var(--fs-large);
+    letter-spacing: 4.8px;
+  }
+
+  .heading-4 {
+    font-size: var(--fs-md);
+    letter-spacing: 4px;
+  }
+
+  .heading-5 {
+    font-size: var(--fs-base);
+  }
+
+  .heading-6 {
+    font-size: var(--fs-sm);
+    letter-spacing: 3px;
+  }
+}
