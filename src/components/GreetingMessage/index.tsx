@@ -1,14 +1,16 @@
 // type GreetingMessageProps = {}
 
-import { SunIcon } from '../Icons';
+import { getGreetingMessage, isDay } from '@/lib/utils';
+import { MoonIcon, SunIcon } from '../Icons';
 import styles from './styles.module.css';
 
 const GreetingMessage = () => {
   return (
     <div className={styles.greetingMessage}>
-      <SunIcon />
+      {isDay(2) ? <SunIcon /> : <MoonIcon />}
       <h1 className='heading-4'>
-        good morning, <span>it's currently</span>
+        {getGreetingMessage(2)}
+        <span>, it's currently</span>
       </h1>
     </div>
   );

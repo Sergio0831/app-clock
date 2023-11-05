@@ -1,15 +1,28 @@
 import { useToggleReadMore } from '@/hooks/useToggleReadMore';
 import styles from './styles.module.css';
+import { clsx, type ClassValue } from 'clsx';
+import { isDay } from '@/lib/utils';
 
 // type LocationInfoProps = {}
 
 const LocationInfo = () => {
   const { state } = useToggleReadMore();
+  const night = !isDay(2);
+
+  const locationInfoStyles: ClassValue = clsx({
+    [styles.locationInfo]: true,
+    [styles.isNight]: night,
+  });
+
+  const dividerStyles: ClassValue = clsx({
+    [styles.divider]: true,
+    [styles.isNight]: night,
+  });
 
   return (
     <>
       {state.isReadMore && (
-        <section className={styles.locationInfo}>
+        <section className={locationInfoStyles}>
           <div className={`${styles.locationInfoWrapper} wrapper`}>
             <div className={styles.locationInfoItems}>
               <article className={styles.locationInfoItem}>
@@ -21,7 +34,7 @@ const LocationInfo = () => {
                 <p className='heading-2'>295</p>
               </article>
             </div>
-            <div className={styles.divider}></div>
+            <div className={dividerStyles}></div>
             <div className={styles.locationInfoItems}>
               <article className={styles.locationInfoItem}>
                 <h3 className='heading-6'>day of the week</h3>

@@ -1,9 +1,13 @@
+import { isDay } from '@/lib/utils';
 import styles from './styles.module.css';
 
 type BgImageProps = {
-  mobileBg: string;
-  tabletBg: string;
-  desktopBg: string;
+  mobileBgDay: string;
+  tabletBgDay: string;
+  desktopBgDay: string;
+  mobileBgNight: string;
+  tabletBgNight: string;
+  desktopBgNight: string;
   alt: string;
 };
 
@@ -11,13 +15,33 @@ type BgImageProps = {
 const desktopMediaQuery = '(min-width: 769px)';
 const tabletMediaQuery = '(min-width: 420px)';
 
-const BgImage = ({ mobileBg, tabletBg, desktopBg, alt }: BgImageProps) => {
+const BgImage = ({
+  mobileBgDay,
+  tabletBgDay,
+  desktopBgDay,
+  mobileBgNight,
+  tabletBgNight,
+  desktopBgNight,
+  alt,
+}: BgImageProps) => {
+  const day = isDay(2);
+
   return (
     <>
       <picture>
-        <source media={desktopMediaQuery} srcSet={desktopBg} />
-        <source media={tabletMediaQuery} srcSet={tabletBg} />
-        <img className={styles.image} src={mobileBg} alt={alt} />
+        <source
+          media={desktopMediaQuery}
+          srcSet={day ? desktopBgDay : desktopBgNight}
+        />
+        <source
+          media={tabletMediaQuery}
+          srcSet={day ? tabletBgDay : tabletBgNight}
+        />
+        <img
+          className={styles.image}
+          src={day ? mobileBgDay : mobileBgNight}
+          alt={alt}
+        />
       </picture>
     </>
   );

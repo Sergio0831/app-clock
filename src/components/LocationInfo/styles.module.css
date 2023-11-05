@@ -5,6 +5,11 @@
   padding: 3rem 0;
 }
 
+.locationInfo.isNight {
+  background: rgba(0, 0, 0, 0.75);
+  color: var(--clr-white);
+}
+
 .locationInfoWrapper {
   display: grid;
   row-gap: 1rem;
@@ -26,6 +31,10 @@
   background-color: var(--clr-dark);
   opacity: 0.25;
   display: none;
+}
+
+.divider.isNight {
+  background-color: var(--clr-white);
 }
 
 /* 480px */
