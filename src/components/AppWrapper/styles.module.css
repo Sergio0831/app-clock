@@ -2,9 +2,8 @@
   padding: 4vw 0 7vw;
   display: grid;
   align-content: space-between;
-  min-height: 100vh;
+  min-height: 100dvh;
   grid-template-rows: 1fr max-content;
-  /* row-gap: clamp(2.4rem, 3vw, 3.5rem); */
 }
 
 .appWrapper.isReadMore {

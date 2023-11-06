@@ -13,6 +13,7 @@ import RandomQuote from './components/RandomQuote';
 import Time from './components/Time';
 import LocationInfo from './components/LocationInfo';
 import { AppWrapper } from './components/AppWrapper';
+import { LocationDataProvider } from './context/LocationInfoContext';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -36,8 +37,10 @@ function App() {
       />
       <AppWrapper>
         <RandomQuote />
-        <Time />
-        <LocationInfo />
+        <LocationDataProvider>
+          <Time />
+          <LocationInfo />
+        </LocationDataProvider>
       </AppWrapper>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>

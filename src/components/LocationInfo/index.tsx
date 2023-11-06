@@ -1,12 +1,12 @@
+import { clsx, type ClassValue } from 'clsx';
 import { useToggleReadMore } from '@/hooks/useToggleReadMore';
 import styles from './styles.module.css';
-import { clsx, type ClassValue } from 'clsx';
 import { isDay } from '@/lib/utils';
-
-// type LocationInfoProps = {}
+import { useLocationData } from '@/hooks/useLocationData';
 
 const LocationInfo = () => {
   const { state } = useToggleReadMore();
+  const data = useLocationData();
   const night = !isDay(2);
 
   const locationInfoStyles: ClassValue = clsx({
@@ -22,31 +22,31 @@ const LocationInfo = () => {
   return (
     <>
       {state.isReadMore && (
-        <section className={locationInfoStyles}>
+        <div className={locationInfoStyles}>
           <div className={`${styles.locationInfoWrapper} wrapper`}>
             <div className={styles.locationInfoItems}>
               <article className={styles.locationInfoItem}>
                 <h3 className='heading-6'>current timezone</h3>
-                <p className='heading-2'>Europe/London</p>
+                <p className='heading-2'>{data?.timezone}</p>
               </article>
               <article className={styles.locationInfoItem}>
                 <h3 className='heading-6'>day of the year</h3>
-                <p className='heading-2'>295</p>
+                <p className='heading-2'>{data?.day_of_year}</p>
               </article>
             </div>
             <div className={dividerStyles}></div>
             <div className={styles.locationInfoItems}>
               <article className={styles.locationInfoItem}>
                 <h3 className='heading-6'>day of the week</h3>
-                <p className='heading-2'>5</p>
+                <p className='heading-2'>{data?.day_of_week}</p>
               </article>
               <article className={styles.locationInfoItem}>
                 <h3 className='heading-6'>week number</h3>
-                <p className='heading-2'>42</p>
+                <p className='heading-2'>{data?.week_number}</p>
               </article>
             </div>
           </div>
-        </section>
+        </div>
       )}
     </>
   );

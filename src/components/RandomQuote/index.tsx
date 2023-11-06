@@ -8,9 +8,16 @@ import { useToggleReadMore } from '@/hooks/useToggleReadMore';
 // type RandomQuoteProps = {};
 
 const RandomQuote = () => {
-  const { data, refetch, isLoading, isError } = useQuery<QuoteData, Error>({
+  const { data, refetch, isLoading, isError } = useQuery<
+    Partial<QuoteData>,
+    Error
+  >({
     queryKey: ['randomQuote'],
     queryFn: () => fetchRandomQuote(),
+    select: (data: Partial<QuoteData>) => ({
+      content: data.content,
+      author: data.author,
+    }),
   });
 
   const handleFetchRandomQuote = () => {
@@ -19,18 +26,12 @@ const RandomQuote = () => {
 
   const { state } = useToggleReadMore();
 
-  if (isLoading) {
-    return <p>Random Quote is loading...</p>;
-  }
-
-  if (isError) {
-    return <p>Failed to fetch random quote</p>;
-  }
-
   return (
     <>
       {!state.isReadMore && (
         <div className={`${styles.quoteWrapper} wrapper`}>
+          {isLoading && <p>Random Quote is loading...</p>}
+          {isError && <p>Failed to fetch random quote</p>}
           {data && (
             <div className={`${styles.quote}`}>
               <blockquote>
