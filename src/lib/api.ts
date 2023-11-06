@@ -1,5 +1,11 @@
 import axios from 'axios';
-import { CountryData, LocationInfo, QuoteDataType } from './definitions';
+import { safeParse } from 'valibot';
+import {
+  CountryDataType,
+  LocationInfoType,
+  QuoteDataType,
+  QuoteSchema,
+} from './definitions';
 
 export const fetchRandomQuote = async () => {
   try {
@@ -7,15 +13,25 @@ export const fetchRandomQuote = async () => {
       import.meta.env.VITE_QUOTES_API
     );
 
-    return response.data;
+    const result = safeParse(QuoteSchema, response.data);
+
+    if (result.success) {
+      return {
+        content: result.output.content,
+        author: result.output.author,
+      };
+    } else {
+      throw new Error('Failed to fetch random quote');
+    }
   } catch (error) {
-    throw new Error('Error in fetchRandomQuote');
+    if (error instanceof Error)
+      throw new Error(`Error in fetchRandomQuote: ${error.message}`);
   }
 };
 
 export const fetchCountryData = async () => {
   try {
-    const response = await axios.get<CountryData>(
+    const response = await axios.get<CountryDataType>(
       import.meta.env.VITE_IP_GEOLOCATION_API
     );
 
@@ -27,7 +43,7 @@ export const fetchCountryData = async () => {
 
 export const fetchLocationInfo = async () => {
   try {
-    const response = await axios.get<LocationInfo>(
+    const response = await axios.get<LocationInfoType>(
       import.meta.env.VITE_WORLD_TIME_API
     );
 

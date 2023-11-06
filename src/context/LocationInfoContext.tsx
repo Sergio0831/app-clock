@@ -1,9 +1,9 @@
 import { createContext } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { LocationInfo } from '@/lib/definitions';
+import { LocationInfoType } from '@/lib/definitions';
 import { fetchLocationInfo } from '@/lib/api';
 
-export const LocationDataContext = createContext<LocationInfo | undefined>(
+export const LocationDataContext = createContext<LocationInfoType | undefined>(
   undefined
 );
 
@@ -12,7 +12,7 @@ export const LocationDataProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const { data } = useQuery<LocationInfo, Error>({
+  const { data } = useQuery<LocationInfoType, Error>({
     queryKey: ['locationInfo'],
     queryFn: () => fetchLocationInfo(),
   });

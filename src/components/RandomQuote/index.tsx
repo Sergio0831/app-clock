@@ -1,23 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
-import { QuoteData } from '@/lib/definitions';
 import { fetchRandomQuote } from '@/lib/api';
 import styles from './styles.module.css';
 import { Refresh } from '../Icons';
 import { useToggleReadMore } from '@/hooks/useToggleReadMore';
 
-// type RandomQuoteProps = {};
-
 const RandomQuote = () => {
-  const { data, refetch, isLoading, isError } = useQuery<
-    Partial<QuoteData>,
-    Error
-  >({
+  const { data, refetch, isLoading, isError } = useQuery({
     queryKey: ['randomQuote'],
-    queryFn: () => fetchRandomQuote(),
-    select: (data: Partial<QuoteData>) => ({
-      content: data.content,
-      author: data.author,
-    }),
+    queryFn: fetchRandomQuote,
   });
 
   const handleFetchRandomQuote = () => {
@@ -35,8 +25,8 @@ const RandomQuote = () => {
           {data && (
             <div className={`${styles.quote}`}>
               <blockquote>
-                <p className={styles.content}>"{data?.content}"</p>
-                <p className='heading-5'>{data?.author}</p>
+                <p className={styles.content}>"{data.content}"</p>
+                <p className='heading-5'>{data.author}</p>
               </blockquote>
               <button
                 className={styles.refresh}

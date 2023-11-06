@@ -5,16 +5,19 @@ import styles from './styles.module.css';
 import GreetingMessage from '../GreetingMessage';
 import ReadMoreButton from '../ReadMoreButton';
 import { fetchCountryData } from '@/lib/api';
-import { CountryData } from '@/lib/definitions';
+import { CountryDataType } from '@/lib/definitions';
 import { useQuery } from '@tanstack/react-query';
 import { useLocationData } from '@/hooks/useLocationData';
 import moment from 'moment';
 
 const Time = () => {
-  const { data, isLoading, isError } = useQuery<Partial<CountryData>, Error>({
+  const { data, isLoading, isError } = useQuery<
+    Partial<CountryDataType>,
+    Error
+  >({
     queryKey: ['countryData'],
     queryFn: () => fetchCountryData(),
-    select: (data: Partial<CountryData>) => ({
+    select: (data: Partial<CountryDataType>) => ({
       cityName: data.cityName,
       countryCode: data.countryCode,
     }),
