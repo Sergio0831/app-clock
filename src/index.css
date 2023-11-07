@@ -44,6 +44,10 @@ body {
   min-height: 100dvh;
 }
 
+.root {
+  min-height: 100dvh;
+}
+
 button {
   cursor: pointer;
   font-family: inherit;

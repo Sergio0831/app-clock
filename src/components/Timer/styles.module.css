@@ -1,3 +1,7 @@
+.timer {
+  margin: 1rem 0;
+}
+
 .colons {
   animation: blink 1s infinite;
 }
