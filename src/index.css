@@ -41,11 +41,6 @@ body {
   line-height: 1.55;
   position: relative;
   color: var(--clr-white);
-  min-height: 100dvh;
-}
-
-.root {
-  min-height: 100dvh;
 }
 
 button {
