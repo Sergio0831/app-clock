@@ -3,11 +3,13 @@ import { useToggleReadMore } from '@/hooks/useToggleReadMore';
 import styles from './styles.module.css';
 import { isDay } from '@/lib/utils';
 import { useLocationData } from '@/hooks/useLocationData';
+import moment from 'moment';
 
 const LocationInfo = () => {
   const { state } = useToggleReadMore();
   const data = useLocationData();
-  const night = !isDay(2);
+  const currentHour = moment(data?.datetime).hour();
+  const night = !isDay(currentHour);
 
   const locationInfoStyles: ClassValue = clsx({
     [styles.locationInfo]: true,

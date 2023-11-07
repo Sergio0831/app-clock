@@ -1,10 +1,10 @@
 export function getGreetingMessage(currentTime: number) {
   if (currentTime >= 5 && currentTime < 12) {
-    return 'Good morning ';
+    return 'Good morning';
   } else if (currentTime >= 12 && currentTime < 18) {
-    return 'Good afternoon ';
+    return 'Good afternoon';
   } else {
-    return 'Good evening ';
+    return 'Good evening';
   }
 }
 

@@ -15,6 +15,7 @@
 }
 
 .timeZone {
+  margin: 0 0 0 0.625rem;
   font-size: var(--fs-large);
   font-weight: var(--fw-light);
   line-height: 70%;

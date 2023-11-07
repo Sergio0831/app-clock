@@ -1,5 +1,7 @@
 import { isDay } from '@/lib/utils';
 import styles from './styles.module.css';
+import { useLocationData } from '@/hooks/useLocationData';
+import moment from 'moment';
 
 type BgImageProps = {
   mobileBgDay: string;
@@ -24,7 +26,9 @@ const BgImage = ({
   desktopBgNight,
   alt,
 }: BgImageProps) => {
-  const day = isDay(2);
+  const timeData = useLocationData();
+  const currentHour = moment(timeData?.datetime).hour();
+  const day = isDay(currentHour);
 
   return (
     <>
