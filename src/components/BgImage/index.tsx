@@ -27,7 +27,7 @@ const BgImage = ({
   alt,
 }: BgImageProps) => {
   const timeData = useLocationData();
-  const currentHour = moment(timeData?.datetime).hour();
+  const currentHour = moment(timeData?.dateTime).hour();
   const day = isDay(currentHour);
 
   return (
