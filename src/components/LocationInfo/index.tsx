@@ -8,7 +8,7 @@ import moment from 'moment';
 const LocationInfo = () => {
   const { state } = useToggleReadMore();
   const data = useLocationData();
-  const currentHour = moment(data?.datetime).hour();
+  const currentHour = moment(data?.dateTime).hour();
   const night = !isDay(currentHour);
 
   const locationInfoStyles: ClassValue = clsx({
@@ -29,22 +29,22 @@ const LocationInfo = () => {
             <div className={styles.locationInfoItems}>
               <article className={styles.locationInfoItem}>
                 <h3 className='heading-6'>current timezone</h3>
-                <p className='heading-2'>{data?.timezone}</p>
+                <p className='heading-2'>{data?.timeZone}</p>
               </article>
               <article className={styles.locationInfoItem}>
                 <h3 className='heading-6'>day of the year</h3>
-                <p className='heading-2'>{data?.day_of_year}</p>
+                <p className='heading-2'>{data?.dayOfYear}</p>
               </article>
             </div>
             <div className={dividerStyles}></div>
             <div className={styles.locationInfoItems}>
               <article className={styles.locationInfoItem}>
                 <h3 className='heading-6'>day of the week</h3>
-                <p className='heading-2'>{data?.day_of_week}</p>
+                <p className='heading-2'>{data?.dayOfWeek}</p>
               </article>
               <article className={styles.locationInfoItem}>
                 <h3 className='heading-6'>week number</h3>
-                <p className='heading-2'>{data?.week_number}</p>
+                <p className='heading-2'>{data?.weekNumber}</p>
               </article>
             </div>
           </div>

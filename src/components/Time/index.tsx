@@ -1,44 +1,28 @@
-import styles from './styles.module.css';
+import { useQuery } from '@tanstack/react-query';
+import moment from 'moment';
 
-// type TimeProps = {};
+import { fetchCountryData } from '@/lib/api';
+import { useLocationData } from '@/hooks/useLocationData';
 
 import GreetingMessage from '../GreetingMessage';
 import ReadMoreButton from '../ReadMoreButton';
-import { fetchCountryData } from '@/lib/api';
-import { CountryDataType } from '@/lib/definitions';
-import { useQuery } from '@tanstack/react-query';
-import { useLocationData } from '@/hooks/useLocationData';
-import moment from 'moment';
+import styles from './styles.module.css';
+import Timer from '../Timer';
 
 const Time = () => {
-  const { data, isLoading, isError } = useQuery<
-    Partial<CountryDataType>,
-    Error
-  >({
+  const { data, isLoading, isError } = useQuery({
     queryKey: ['countryData'],
-    queryFn: () => fetchCountryData(),
-    select: (data: Partial<CountryDataType>) => ({
-      cityName: data.cityName,
-      countryCode: data.countryCode,
-    }),
+    queryFn: fetchCountryData,
   });
 
   const timeData = useLocationData();
 
   return (
     <section className={`${styles.wrapperOuter} wrapper`}>
-      <GreetingMessage currentTime={moment(timeData?.datetime).hour()} />
+      <GreetingMessage currentTime={moment(timeData?.dateTime).hour()} />
       <div className={styles.wrapperInner}>
         <div>
-          <div>
-            <time
-              dateTime={timeData?.datetime}
-              className={`${styles.time} heading-1`}
-            >
-              {moment(timeData?.datetime).format('HH:mm')}
-            </time>
-            <span className={styles.timeZone}>{timeData?.abbreviation}</span>
-          </div>
+          <Timer timeZone={timeData?.timeZone} />
           {isLoading && <h2 className='heading-3'>City Name is loading...</h2>}
           {data && (
             <h2 className='heading-3'>

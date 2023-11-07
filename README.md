@@ -36,8 +36,8 @@ Users should be able to:
 
 ### Links
 
-- Frontend Mentor Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://clock-app-ivcenko.netlify.app/)
+- Frontend Mentor Solution URL: [https://your-solution-url.com](https://your-solution-url.com)
+- Live Site URL: [https://clock-app-ivcenko.netlify.app/](https://clock-app-ivcenko.netlify.app/)
 
 ## My process
 

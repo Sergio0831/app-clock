@@ -1,9 +1,17 @@
 import { createContext } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { LocationInfoType } from '@/lib/definitions';
 import { fetchLocationInfo } from '@/lib/api';
 
-export const LocationDataContext = createContext<LocationInfoType | undefined>(
+type LocationDataType = {
+  dateTime: string;
+  abbreviation: string;
+  timeZone: string;
+  dayOfYear: number;
+  dayOfWeek: number;
+  weekNumber: number;
+};
+
+export const LocationDataContext = createContext<LocationDataType | undefined>(
   undefined
 );
 
@@ -12,9 +20,9 @@ export const LocationDataProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const { data } = useQuery<LocationInfoType, Error>({
+  const { data } = useQuery({
     queryKey: ['locationInfo'],
-    queryFn: () => fetchLocationInfo(),
+    queryFn: fetchLocationInfo,
   });
 
   return (

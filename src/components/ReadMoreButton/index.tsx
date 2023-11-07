@@ -2,8 +2,6 @@ import { useToggleReadMore } from '@/hooks/useToggleReadMore';
 import { ArrowDown, ArrowUp } from '../Icons';
 import styles from './styles.module.css';
 
-// type ButtonProps = {};
-
 const ReadMoreButton = () => {
   const { state, dispatch } = useToggleReadMore();
 

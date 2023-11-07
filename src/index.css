@@ -44,11 +44,6 @@ body {
   min-height: 100dvh;
 }
 
-span,
-time {
-  display: inline-block;
-}
-
 button {
   cursor: pointer;
   font-family: inherit;
