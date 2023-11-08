@@ -22,7 +22,10 @@ const Time = () => {
       <GreetingMessage currentTime={moment(timeData?.dateTime).hour()} />
       <div className={styles.wrapperInner}>
         <div>
-          <Timer timeZone={timeData?.timeZone} />
+          <div className={styles.timerWrapper}>
+            <Timer timeZone={timeData?.timeZone} />
+            <p className={styles.timeZone}>{timeData?.abbreviation}</p>
+          </div>
           {isLoading && <h2 className='heading-3'>City Name is loading...</h2>}
           {data && (
             <h2 className='heading-3'>

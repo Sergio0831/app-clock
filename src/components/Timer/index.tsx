@@ -20,7 +20,7 @@ const Timer = ({ timeZone }: TimerProps) => {
   );
 
   return (
-    <div className={styles.timer}>
+    <div>
       <span className='heading-1'>{formattedTime.slice(0, 2)}</span>
       <span className={`${styles.colons} heading-1`}>:</span>{' '}
       <span className='heading-1'>{formattedTime.slice(3, 5)}</span>

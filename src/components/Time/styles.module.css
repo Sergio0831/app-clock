@@ -14,6 +14,13 @@
   margin: 1rem 0;
 }
 
+.timerWrapper {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+
 .timeZone {
   margin: 0 0 0 0.625rem;
   font-size: var(--fs-large);
